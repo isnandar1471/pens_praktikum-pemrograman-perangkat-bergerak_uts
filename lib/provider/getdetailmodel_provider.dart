@@ -6,11 +6,11 @@ class GetdetailmodelProvider extends ChangeNotifier {
   bool _onProgress = false;
   bool getOnProgress() => _onProgress;
 
-  Future<DetailModel> getDetailModel(String imdbID) async {
+  Future<DetailModel> getDetailModel(String imdbID, String apikey) async {
     _onProgress = true;
     notifyListeners();
 
-    DetailModel result = await ApiService.get_detailbyid(imdbID);
+    DetailModel result = await ApiService.get_detailbyid(imdbID, apikey);
 
     _onProgress = false;
     notifyListeners();

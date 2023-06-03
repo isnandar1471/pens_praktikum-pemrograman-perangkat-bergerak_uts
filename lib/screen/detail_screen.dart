@@ -19,9 +19,9 @@ class DetailScreen extends StatelessWidget {
         ? Image.asset(AppConstant.imagenotfoundPath)
         : Image.network(detailModel.poster);
     return Scaffold(
-      backgroundColor: Color(0xfff4f4f4),
+      backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
-        backgroundColor: Color(0xfff4f4f4),
+        backgroundColor: const Color(0xfff4f4f4),
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
       ),
@@ -63,7 +63,7 @@ class DetailScreen extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(14),
                         child: SizedBox.fromSize(
-                          size: Size(56, 56),
+                          size: const Size(56, 56),
                           child: ClipOval(
                             child: Material(
                               child: InkWell(
@@ -104,60 +104,60 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
               children: [
-                Icon(Icons.movie),
-                SizedBox(width: 5),
+                const Icon(Icons.movie),
+                const SizedBox(width: 5),
                 Text(
                   detailModel.director,
-                  style: TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
               detailModel.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.5,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
               children: [
-                Icon(Icons.flag),
-                SizedBox(width: 5),
+                const Icon(Icons.flag),
+                const SizedBox(width: 5),
                 Text(
                   detailModel.country,
                 ),
-                SizedBox(width: 20),
-                Icon(Icons.timer),
-                SizedBox(width: 5),
+                const SizedBox(width: 20),
+                const Icon(Icons.timer),
+                const SizedBox(width: 5),
                 Text(
                   detailModel.runtime,
-                  style: TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 14),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               detailModel.plot,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 height: 1.5,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -165,7 +165,7 @@ class DetailScreen extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         'Year',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -174,10 +174,10 @@ class DetailScreen extends StatelessWidget {
                       Text(
                         detailModel.year,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                         'Rating',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -192,7 +192,7 @@ class DetailScreen extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         'Released',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -201,10 +201,10 @@ class DetailScreen extends StatelessWidget {
                       Text(
                         detailModel.released,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                         'Votes',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -218,10 +218,10 @@ class DetailScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Genre',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -230,10 +230,10 @@ class DetailScreen extends StatelessWidget {
             Text(
               detailModel.genre,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Actors',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -242,10 +242,10 @@ class DetailScreen extends StatelessWidget {
             Text(
               detailModel.actors,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Writers',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -254,10 +254,10 @@ class DetailScreen extends StatelessWidget {
             Text(
               detailModel.writer,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Writers',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -266,10 +266,10 @@ class DetailScreen extends StatelessWidget {
             Text(
               detailModel.writer,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Language',
               style: TextStyle(
                 fontWeight: FontWeight.bold,

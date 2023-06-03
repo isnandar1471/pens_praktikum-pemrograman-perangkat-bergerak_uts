@@ -1,4 +1,4 @@
-package com.example.uts_mobile
+package com.example.omdbapi
 
 import io.flutter.embedding.android.FlutterActivity
 

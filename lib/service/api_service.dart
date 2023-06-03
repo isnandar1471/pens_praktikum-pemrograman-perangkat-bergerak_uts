@@ -10,8 +10,9 @@ import '/model/search_model.dart';
 
 class ApiService {
   /// return instance of DetailModel or ErrorresponseModel
-  static Future<dynamic> get_detailbyid(String id) async {
-    var response = await http.get(Uri.parse(AppConstant.detailbyidUrl(id)));
+  static Future<dynamic> get_detailbyid(String id, String apikey) async {
+    var response =
+        await http.get(Uri.parse(AppConstant.detailbyidUrl(id, apikey)));
 
     if (response.statusCode != 200) {
       throw Exception('Error with statusCode ${response.statusCode}');
@@ -25,8 +26,9 @@ class ApiService {
   }
 
   /// return instance of SearchModel or ErrorresponseModel
-  static Future<dynamic> get_search(String search) async {
-    var response = await http.get(Uri.parse(AppConstant.searchUrl(search)));
+  static Future<dynamic> get_search(String search, String apikey) async {
+    var response =
+        await http.get(Uri.parse(AppConstant.searchUrl(search, apikey)));
     inspect(response);
     if (response.statusCode != 200) {
       throw Exception('Error with statusCode ${response.statusCode}');

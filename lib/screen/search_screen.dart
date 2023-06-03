@@ -1,5 +1,9 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:uts_mobile/constant/app_constant.dart';
+import 'package:uts_mobile/provider/apitoken_provider.dart';
 import 'package:uts_mobile/provider/getdetailmodel_provider.dart';
 import 'package:uts_mobile/screen/bookmarked_screen.dart';
 
@@ -20,7 +24,7 @@ class SearchScreen extends StatelessWidget {
           Scaffold(
             appBar: AppBar(
               title: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     Expanded(
@@ -29,8 +33,13 @@ class SearchScreen extends StatelessWidget {
                         builder: (context,
                                 SearchlistProvider searchlistProvider, child) =>
                             TextField(
-                          onSubmitted: searchlistProvider.doSearch,
-                          decoration: InputDecoration(
+                          onSubmitted: (value) {
+                            String apikey = Provider.of<ApikeyProvider>(context,
+                                    listen: false)
+                                .getApikey();
+                            searchlistProvider.doSearch(value, apikey);
+                          },
+                          decoration: const InputDecoration(
                             hintStyle: TextStyle(
                               color: Colors.white54,
                             ),
@@ -41,7 +50,7 @@ class SearchScreen extends StatelessWidget {
                             ),
                             prefixIconColor: Colors.white54,
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                           showCursor: true,
@@ -52,8 +61,8 @@ class SearchScreen extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: InkWell(
-                        child: Icon(Icons.bookmark_border),
-                        onTap: () => Navigator.pushNamed(
+                        child: const Icon(Icons.bookmark_border),
+                        onTap: () => Navigator.popAndPushNamed(
                           context,
                           BookmarkedScreen.routeName,
                         ),
@@ -66,7 +75,7 @@ class SearchScreen extends StatelessWidget {
             body: Consumer<SearchlistProvider>(
               builder: (context, SearchlistProvider searchlistProvider, child) {
                 if (searchlistProvider.getOnProgress()) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
                 List<Search> getList = searchlistProvider.getSearchlist();
                 return ListView.builder(

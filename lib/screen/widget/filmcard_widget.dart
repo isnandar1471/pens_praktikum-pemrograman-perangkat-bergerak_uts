@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uts_mobile/constant/app_constant.dart';
 import 'package:uts_mobile/model/detail_model.dart';
+import 'package:uts_mobile/provider/apitoken_provider.dart';
 import 'package:uts_mobile/provider/getdetailmodel_provider.dart';
 import 'package:uts_mobile/screen/detail_screen.dart';
 import '/model/search_model.dart';
@@ -18,7 +19,7 @@ class FilmcardWidget extends StatelessWidget {
         : Image.network(search.poster, fit: BoxFit.cover);
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
       child: Column(
         children: <Widget>[
           GestureDetector(
@@ -34,10 +35,13 @@ class FilmcardWidget extends StatelessWidget {
             //   );
             // },
             onTap: () async {
+              String apikey =
+                  Provider.of<ApikeyProvider>(context, listen: false)
+                      .getApikey();
               DetailModel detail = await Provider.of<GetdetailmodelProvider>(
                       context,
                       listen: false)
-                  .getDetailModel(search.imdbId);
+                  .getDetailModel(search.imdbId, apikey);
               Navigator.pushNamed(
                 context,
                 DetailScreen.routeName,
@@ -54,7 +58,7 @@ class FilmcardWidget extends StatelessWidget {
                       height: 150,
                       width: 100,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(5),
                           topLeft: Radius.circular(5),
                         ),
@@ -76,18 +80,18 @@ class FilmcardWidget extends StatelessWidget {
                               ? search.title
                                   .replaceRange(20, search.title.length, '...')
                               : search.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.movie),
-                            SizedBox(
+                            const Icon(Icons.movie),
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(
@@ -95,13 +99,13 @@ class FilmcardWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.calendar_today),
-                            SizedBox(
+                            const Icon(Icons.calendar_today),
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(

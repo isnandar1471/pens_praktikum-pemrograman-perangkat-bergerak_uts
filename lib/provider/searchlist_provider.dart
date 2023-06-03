@@ -15,11 +15,11 @@ class SearchlistProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void doSearch(String text) async {
+  void doSearch(String text, String apikey) async {
     _onProgress = true;
     notifyListeners();
 
-    var result = await ApiService.get_search(text);
+    var result = await ApiService.get_search(text, apikey);
 
     if (result is SearchModel) {
       setSearchlist(result.search);
